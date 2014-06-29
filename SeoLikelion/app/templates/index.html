@@ -22,10 +22,10 @@
     $(function() {
       $('#calculate').bind('click', function() {
         $.getJSON('/_add_numbers', {
-          a: $('input[name="a"]').val(),
-          b: $('input[name="b"]').val()
+          a: $('input[name="a"]').val()
         }, function(data) {
           $("#result").text(data.result);
+          $("input").innerHTML="";
         });
         return false;
       });
@@ -35,27 +35,60 @@
   <style>
         div{
 
-                background-color:red;
-                height: 100px;
-                width : 100px;
+                background-color:#facbdb;
+                height: 50%;
+                width : 50%;
 
                 padding:10px;
+                border-radius: 30px;
+                border: 5px dotted #fb4281;
+        }
+
+        input{
+                
+                width: 30%;
+                outline-color: #65dddc;
+
+        }
+
+        img{
+
+                width: 30%;
+                height: 50%;
+
+
         }
 
   </style>
+
+  <script type="text/javascript">
+
+        $(document).ready(function() {
+
+            $('input').focus(function(){
+
+                $(this).css('outline-color', #bc48dd);
+
+
+            });
+
+        });
+
+  </script>
+
 
     </head>
 
     <body>
 
-	<h1>"hello world! From templates!"</h1>
-	<input type="text" size="5" name="a"> +
-    <input type="text" size="5" name="b"> =
-    <span id="result">sdfdfasd</span>
+<input type="text" name="a" placeholder="Input text" rows="2">
 
-    <a href="javascript:void();" id="calculate"><button>enter</button></a>
+<a href="javascript:void();" id="calculate"><button>enter</button></a>
 
-<div id="test" style="overflow:scroll; width:300px; height:150px; padding:10px;">
+<div id="test" style="overflow:scroll;">
+  
+    <img src="/static/img/bear.jpg"/>
+
 </div>
 
     </body>
